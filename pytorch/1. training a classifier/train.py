@@ -9,7 +9,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 model = net.to(device)
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 for epoch in range(16):  # loop over the dataset multiple times
 
