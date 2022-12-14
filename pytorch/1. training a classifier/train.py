@@ -17,13 +17,14 @@ for epoch in range(2):  # loop over the dataset multiple times
     for i, data in enumerate(trainloader, 0):
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = data
-
+        inputs = inputs.to(device)
+        labels = labels.to(device)
         # zero the parameter gradients
         optimizer.zero_grad()
 
         # forward + backward + optimize
-        outputs = model(inputs.to(device))
-        loss = criterion(outputs, labels.to(device))
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
         loss.backward()
         optimizer.step()
 
