@@ -36,4 +36,4 @@ for epoch in range(16):  # loop over the dataset multiple times
 
 print('Finished Training')
 PATH = './cifar_net.pth'
-torch.save(net.state_dict(), PATH)
+torch.save(model.state_dict(), PATH)
