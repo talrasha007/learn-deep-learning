@@ -5,6 +5,9 @@ import torch.optim as optim
 from trainloader import trainloader
 from model import net
 
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+model = net.to(device)
+
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
@@ -19,8 +22,8 @@ for epoch in range(2):  # loop over the dataset multiple times
         optimizer.zero_grad()
 
         # forward + backward + optimize
-        outputs = net(inputs)
-        loss = criterion(outputs, labels)
+        outputs = model(inputs.to(device))
+        loss = criterion(outputs, labels.to(device))
         loss.backward()
         optimizer.step()
 
