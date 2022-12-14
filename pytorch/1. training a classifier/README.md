@@ -10,3 +10,8 @@ To train, run
 ```sh
 python train.py
 ```
+
+To test, run
+```sh
+python test.py
+```
