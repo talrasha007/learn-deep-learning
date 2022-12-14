@@ -15,3 +15,17 @@ To test, run
 ```sh
 python test.py
 ```
+
+## Vision Transformer
+https://github.com/lucidrains/vit-pytorch
+
+### Install
+```sh
+pip install vit-pytorch
+```
+
+### Train & Test
+```sh
+MODEL=vit python train.py
+MODEL=vit python test.py
+```
